@@ -1,0 +1,6 @@
+{
+  "name": "ZenZoo Café Safi",
+  "description": "Menu digital et guide opérationnel en direct de ZenZoo Café au centre-ville de Safi, Maroc. Boissons, petit-déjeuner et retransmission de matchs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

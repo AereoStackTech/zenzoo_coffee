@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #F9F6F0;           /* Warm Moroccan plaster / bone */
+  --surface: #FFFFFF;          /* Pure white tile surface */
+  --surface-raised: #F2ECE1;   /* Warm sand card background */
+  --surface-brass: #E8DCC4;    /* Polished counter trim */
+  --ink: #1B2421;              /* Deep espresso graphite */
+  --ink-soft: #3D4843;         /* Roasted bean charcoal */
+  --ink-muted: #6B7872;        /* Weathered terrace stone */
+  --line: #E2D9CC;             /* Subtle ceramic grout line */
+  --line-strong: #C4B59D;      /* Brass edge accent */
+  --primary: #9C4221;          /* Safi red clay / terracotta */
+  --primary-hover: #7E3318;    /* Deep baked clay */
+  --focus: #9C4221;            /* Accessibility ring */
+  --live-green: #1E6B42;       /* Open indicator emerald */
+  --live-bg: #E8F5EE;          /* Open indicator pill surface */
+  --accent-atlantic: #1A3B47;  /* Safi coastal ocean navy */
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+  
+  html {
+    background-color: var(--canvas);
+    color: var(--ink);
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    min-height: 100vh;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Focus rings for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Tabular figures for aligned pricing numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide scrollbar for clean horizontal pill scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle pulse for live status indicator */
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.15);
+  }
+}
+
+.animate-status-pulse {
+  animation: status-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle shimmer for featured live match card */
+@keyframes shimmer-subtle {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-badge {
+  background: linear-gradient(
+    90deg,
+    rgba(156, 66, 33, 0.08) 0%,
+    rgba(156, 66, 33, 0.22) 50%,
+    rgba(156, 66, 33, 0.08) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-subtle 4s ease-in-out infinite;
+}
